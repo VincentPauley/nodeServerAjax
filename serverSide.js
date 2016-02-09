@@ -14,6 +14,8 @@ function onRequest(request, response) {
   if(request.method == 'GET' && request.url == "/") {
     response.writeHead(200, {"content-type" : "text/html"});
     fs.createReadStream('./index.html').pipe(response);
+  } else if(request.method == 'GET' && request.url == "/breakfast.txt") {
+    fs.createReadStream('./breakfast.txt').pipe(response);
   } else {
     send404Response(response);
   }
